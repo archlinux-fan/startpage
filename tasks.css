@@ -23,7 +23,7 @@ body:has(> aside[inert]) { padding-left: 0; }
 body > button, aside > button { padding: 6px; color: var(--muted); &:hover { color: var(--accent); } }
 body > button { position: fixed; z-index: 1; top: 16px; left: 14px; transition: opacity .25s, visibility .25s; }
 body:has(> aside:not([inert])) > button { opacity: 0; visibility: hidden; }
-aside > button { position: absolute; top: 16px; right: 12px; }
+aside > button { position: absolute; top: 16px; right: 12px; opacity: .4; &:hover { opacity: 1; } } /* faint, like the drag grip */
 
 /* Touch: no hover, so task buttons always show and tap targets grow */
 @media (hover: none) {
