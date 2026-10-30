@@ -7,7 +7,7 @@ const COLORS = [ // CSS variable, label, name of the "keep as is" choice
     ['--text', 'Text', 'Default'],
     ['--accent', 'Arrows and highlights', 'Default'],
     ['--icons', 'Icons', 'Brand colors'],
-    ['--panel', 'Tasks panel', 'Like bookmarks'],
+    ['--panel', 'Tasks panel', 'Default'],
     ['--tasks-accent', 'Tasks highlight', 'Like arrows'],
 ];
 const form = document.querySelector('form');

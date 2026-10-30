@@ -1,7 +1,7 @@
 /* Tasks panel: slides in from the left, pinned on top, grip to reorder, scrolls on its own */
 aside {
     position: fixed; inset: 0 auto 0 0; width: 280px; display: flex; flex-direction: column; gap: 12px;
-    padding: 24px 20px 64px; background: var(--panel, var(--surface)); /* room at the bottom for the show / hide button */
+    padding: 24px 20px 64px; background: var(--panel, light-dark(#d7dfe9, #3b4252)); /* room at the bottom for the show / hide button */
     transition: translate .25s ease;
     &[inert] { translate: -100%; }
     ul { flex: 1; min-height: 0; overflow-y: auto; list-style: none; }
