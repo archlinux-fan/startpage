@@ -1,12 +1,15 @@
-# A tag like v1.0 builds one zip per version and publishes them as a GitHub release
+# A tag like v1.0 builds one zip per version and publishes them as a GitHub release.
+# If a tag push doesn't start it, run it from the Actions tab and pick the tag under "Use workflow from".
 name: Release
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
   release:
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,4 +29,16 @@ jobs:
       - name: Publish the release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" build/*.zip --title "$GITHUB_REF_NAME" --generate-notes
+        run: |
+          cat > notes.md <<EOF
+          Pick one zip, unzip it and open \`index.html\`:
+
+          - **startpage.zip**: bookmarks, no JavaScript
+          - **startpage-search.zip**: bookmarks and search
+          - **startpage-tasks.zip**: bookmarks and the tasks panel
+          - **startpage-search-tasks.zip**: bookmarks, search and the tasks panel
+
+          Pick your colors on the [color page](https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/docs/).
+          The "Source code" downloads below are the whole repo, added by GitHub to every release.
+          EOF
+          gh release create "$GITHUB_REF_NAME" build/*.zip --title "Start page ${GITHUB_REF_NAME#v}" --notes-file notes.md
