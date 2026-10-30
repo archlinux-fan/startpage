@@ -1,7 +1,7 @@
 /* Tasks panel: slides in from the left, pinned on top, grip to reorder, scrolls on its own */
 aside {
     position: fixed; inset: 0 auto 0 0; width: 280px; display: flex; flex-direction: column; gap: 12px;
-    padding: 56px 20px 24px; background: var(--panel, var(--surface));
+    padding: 24px 20px 64px; background: var(--panel, var(--surface)); /* room at the bottom for the show / hide button */
     transition: translate .25s ease;
     &[inert] { translate: -100%; }
     ul { flex: 1; min-height: 0; overflow-y: auto; list-style: none; }
@@ -19,23 +19,18 @@ aside {
 body:has(> aside) { padding-left: 280px; transition: padding-left .25s ease; }
 body:has(> aside[inert]) { padding-left: 0; }
 
-/* The list icon (top left) opens the panel and hides while it's open; the arrow on the panel's right edge closes it */
-body > button, aside > button { padding: 6px; color: var(--muted); &:hover { color: var(--accent); } }
-body > button { position: fixed; z-index: 1; top: 16px; left: 14px; transition: opacity .25s, visibility .25s; }
-body:has(> aside:not([inert])) > button { opacity: 0; visibility: hidden; }
-aside > button { position: absolute; top: 16px; right: 12px; opacity: .4; &:hover { opacity: 1; } } /* faint, like the drag grip */
+/* Show / hide button, bottom left, above the panel */
+body > button { position: fixed; z-index: 1; bottom: 16px; left: 14px; padding: 6px; color: var(--muted); &:hover { color: var(--accent); } }
 
 /* Touch: no hover, so task buttons always show and tap targets grow */
 @media (hover: none) {
     aside li button { opacity: 1; }
-    body > button, aside > button { padding: 10px; }
+    body > button { padding: 10px; }
 }
 
-/* Phone: tasks on top of the page, so the arrow points up */
+/* Phone: tasks on top of the page, the button floats in the corner */
 @media (width < 760px) {
-    aside { position: relative; inset: auto; width: auto; max-height: 60dvh; padding: 64px 16px 16px; &[inert] { display: none; } }
-    aside > button i { rotate: 90deg; }
+    aside { position: static; width: auto; max-height: 60dvh; padding: 24px 16px 16px; &[inert] { display: none; } }
     body:has(> aside) { padding-left: 0; }
-    body > button { position: absolute; }
-    aside[inert] ~ main { margin-top: 72px; }
+    body > button { border-radius: 50%; background: var(--surface); }
 }

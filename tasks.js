@@ -1,10 +1,14 @@
-// Tasks panel: list icon opens it, its arrow closes it, pinned first, drag the grip to reorder,
+// Tasks panel: the list icon shows / hides it, pinned first, drag the grip to reorder,
 // click text to edit (Shift+Enter = new line), Ctrl+Z undoes
 const aside = document.querySelector('aside');
-const setTasks = (hidden) => { aside.inert = hidden; localStorage.setItem('tasksHidden', hidden ? 1 : ''); };
+const toggle = document.querySelector('body > button');
+const setTasks = (hidden) => {
+    aside.inert = hidden;
+    toggle.title = hidden ? 'Show tasks' : 'Hide tasks';
+    localStorage.setItem('tasksHidden', hidden ? 1 : '');
+};
 setTasks(!!localStorage.getItem('tasksHidden'));
-document.querySelector('body > button').onclick = () => setTasks(false);
-aside.querySelector(':scope > button').onclick = () => setTasks(true);
+toggle.onclick = () => setTasks(!aside.inert);
 
 const form = aside.querySelector('form');
 const ul = aside.querySelector('ul');

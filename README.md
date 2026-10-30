@@ -20,11 +20,13 @@ Every page also uses `favicon.svg`. Try them live:
 [index_tasks](https://archlinux-fan.github.io/startpage/index_tasks.html),
 [index_search_tasks](https://archlinux-fan.github.io/startpage/index_search_tasks.html).
 
+Or [build your own colors](https://archlinux-fan.github.io/startpage/docs/) on a live preview.
+
 ## Features
 
 - **Bookmarks** in collapsible sections. In `index.html`, `open` on a section decides if it starts open; the versions with JavaScript remember what you open and close.
 - **Search:** start typing anywhere to filter bookmarks, Enter opens the first match, Esc clears. Without JavaScript, Ctrl+F does the job.
-- **Tasks panel:** add with Enter, click to edit (Shift+Enter for a new line), pin to the top, drag the grip to reorder, Ctrl+Z to undo. The list icon in the top left opens it, the arrow on its right edge slides it away.
+- **Tasks panel:** add with Enter, click to edit (Shift+Enter for a new line), pin to the top, drag the grip to reorder, Ctrl+Z to undo. The list icon in the bottom left slides it in and out.
 - Works on desktop, tablet and phone.
 
 ## Colors
