@@ -3,9 +3,30 @@
 A minimal [Nord](https://www.nordtheme.com) start page for the browser: bookmarks, search and a tasks panel.
 Plain HTML, CSS and JavaScript. No build step, no framework.
 
-## Pick a version
+## Download
 
-Open the one you like and delete the others.
+Get a version from the [latest release](https://github.com/archlinux-fan/startpage/releases/latest), unzip it and open `index.html`.
+Each screenshot shows a version in other colors, all picked on the [color page](https://archlinux-fan.github.io/startpage/docs/).
+
+**[startpage.zip](https://github.com/archlinux-fan/startpage/releases/latest/download/startpage.zip):** bookmarks, no JavaScript. Default Nord colors.
+
+![startpage: bookmarks in the default Nord colors](screenshots/1-startpage.png)
+
+**[startpage-search.zip](https://github.com/archlinux-fan/startpage/releases/latest/download/startpage-search.zip):** bookmarks and search. Purple arrows, one-color icons.
+
+![startpage-search: purple arrows, one-color icons, two sections closed](screenshots/2-startpage-search.png)
+
+**[startpage-tasks.zip](https://github.com/archlinux-fan/startpage/releases/latest/download/startpage-tasks.zip):** bookmarks and the tasks panel. Light theme with dark blue.
+
+![startpage-tasks: light theme with dark blue](screenshots/3-startpage-tasks.png)
+
+**[startpage-search-tasks.zip](https://github.com/archlinux-fan/startpage/releases/latest/download/startpage-search-tasks.zip):** all of it. Pink.
+
+![startpage-search-tasks: pink](screenshots/4-startpage-search-tasks.png)
+
+## Or use the files here
+
+The same four versions are in this repo. Open the one you like and delete the others.
 
 | Page | What it has | Files it needs |
 |---|---|---|
