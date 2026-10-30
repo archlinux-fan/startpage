@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start page colors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&display=swap">
+    <style>
+        :root { color-scheme: dark; --bg: #2e3440; --surface: #3b4252; --text: #d8dee9; --accent: #88c0d0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { display: grid; grid-template-columns: 340px 1fr; height: 100dvh; background: var(--bg); color: var(--text); font: 14px/1.4 'Albert Sans', 'Noto Sans', sans-serif; }
+        form { display: flex; flex-direction: column; gap: 18px; padding: 24px 20px; overflow-y: auto; background: var(--surface); }
+        h1 { font-size: 1.15rem; font-weight: 600; }
+        p { color: color-mix(in srgb, var(--text) 65%, var(--surface)); }
+        fieldset { display: flex; flex-wrap: wrap; gap: 6px; border: 0; }
+        legend { margin-bottom: 8px; font-size: .85rem; font-weight: 600; }
+        button { font: inherit; color: inherit; border: 0; cursor: pointer; }
+        /* Swatches are round; text choices (Default, Dark, Light…) are pills */
+        fieldset button { width: 24px; height: 24px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12); }
+        fieldset button:not([style]) { width: auto; padding: 0 10px; border-radius: 12px; background: var(--bg); }
+        [aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+        input[type="color"] { width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+        pre { padding: 12px; border-radius: 8px; background: var(--bg); font: 13px/1.5 ui-monospace, monospace; white-space: pre-wrap; }
+        pre + button { padding: 10px; border-radius: 8px; background: var(--accent); color: var(--bg); font-weight: 600; }
+        iframe { width: 100%; height: 100%; border: 0; }
+        @media (width < 760px) { body { grid-template-columns: 1fr; height: auto; } iframe { height: 80dvh; } }
+    </style>
+</head>
+<body>
+
+<form>
+    <h1>Start page colors</h1>
+    <p>Pick colors and watch the preview. Then paste the CSS below at the end of style.css.</p>
+    <!-- builder.js adds the color choices here -->
+    <pre></pre>
+    <button type="button">Copy CSS</button>
+</form>
+
+<iframe title="Preview"></iframe>
+
+<script src="builder.js"></script>
+</body>
+</html>

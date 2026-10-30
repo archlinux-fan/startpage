@@ -1,0 +1,53 @@
+/* Nord colors. Try others in docs/ (the color picker) and paste what it gives you at the end of this file */
+:root {
+    color-scheme: dark; /* or light */
+    --bg: light-dark(#e5e9f0, #2e3440);
+    --surface: light-dark(#d7dfe9, #3b4252);
+    --text: light-dark(#2e3440, #d8dee9);
+    --accent: light-dark(#5e81ac, #88c0d0);
+    --hover: color-mix(in srgb, var(--surface), var(--text) 7%);
+    --muted: color-mix(in srgb, var(--text) 65%, var(--bg));
+    --frost: linear-gradient(90deg, #8fbcbb, #88c0d0, #81a1c1, #5e81ac);
+    interpolate-size: allow-keywords;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { display: grid; min-height: 100dvh; background: var(--bg); color: var(--text); font: 15px/1.4 'Albert Sans', 'Noto Sans', sans-serif; }
+input, button { font: inherit; color: inherit; background: none; border: 0; appearance: none; }
+button, summary { cursor: pointer; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Inputs: a Frost line grows on focus */
+input {
+    width: 100%; padding: 8px 0;
+    background: var(--frost) left bottom / 0 2px no-repeat, linear-gradient(var(--hover) 0 0) bottom / 100% 1px no-repeat;
+    transition: background-size .5s ease;
+    &:focus { outline: 0; background-size: 100% 2px, 100% 1px; }
+    &::placeholder { color: var(--muted); }
+}
+
+/* Bookmarks; while searching every section opens and empty ones hide */
+main { width: min(640px, 100% - 64px); margin: 6vh auto 48px; }
+main > input { font-size: .9rem; color: var(--muted); &:focus { color: var(--text); } }
+main details { margin-top: 28px; }
+main:has(> input:not(:placeholder-shown)) details::details-content { block-size: auto; content-visibility: visible; }
+details:not(:has(a:not([hidden]))) { display: none; }
+summary { width: fit-content; color: var(--muted); font-size: .85rem; font-weight: 600; }
+summary:hover { color: var(--text); }
+summary::marker { color: var(--accent); }
+details::details-content { block-size: 0; overflow: hidden; transition: block-size .3s, content-visibility .3s allow-discrete; }
+details[open]::details-content { block-size: auto; }
+nav {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; padding-top: 12px;
+    a {
+        display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 12px; line-height: 1.15;
+        background: var(--surface); border-radius: 8px; color: inherit; text-decoration: none;
+        &:hover, &:focus-visible { background: var(--hover); outline-offset: -2px; }
+    }
+    /* --icons (one color for all) wins over each icon's own --c */
+    i { width: 1.2em; text-align: center; color: var(--icons, var(--c, var(--text))); }
+}
+
+@media (width < 760px) { main { width: calc(100% - 32px); margin-top: 24px; } }
+@media (prefers-reduced-motion: reduce) { *, ::details-content { transition: none !important; } }
