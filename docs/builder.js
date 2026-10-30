@@ -18,7 +18,7 @@ const picked = { 'color-scheme': 'dark' }; // style.css is dark unless told othe
 
 const chip = (value, label) => `<button type="button" value="${value}">${label}</button>`;
 const swatches = NORD.map((c, i) => `<button type="button" value="${c}" title="nord${i} ${c}" style="background:${c}"></button>`).join('');
-pre.insertAdjacentHTML('beforebegin', `<fieldset name="color-scheme"><legend>Theme</legend>${chip('dark', 'Dark')}${chip('light', 'Light')}</fieldset>`
+copy.insertAdjacentHTML('afterend', `<fieldset name="color-scheme"><legend>Theme</legend>${chip('dark', 'Dark')}${chip('light', 'Light')}</fieldset>`
     + COLORS.map(([name, label, keep]) => `<fieldset name="${name}"><legend>${label}</legend>${chip('', keep)}${swatches}<input type="color" title="Any color"></fieldset>`).join(''));
 
 const render = () => {

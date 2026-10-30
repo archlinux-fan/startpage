@@ -34,7 +34,8 @@ Or [build your own colors](https://archlinux-fan.github.io/startpage/docs/) on a
 Dark Nord by default. To pick your own, open the [color page](https://archlinux-fan.github.io/startpage/docs/):
 choose dark or light, then a color for the background, bookmarks, text, arrows, icons and the tasks panel,
 from the 16 Nord colors or any color you like. The preview changes as you click.
-Copy the CSS it gives you and paste it at the end of `style.css`.
+Copy the CSS it gives you and paste it at the end of `style.css`, or inside `<style></style>` in the `<head>`
+of your page (handy if you keep several pages, each with its own colors).
 
 The color page has to come from a web server (GitHub Pages is one); opened as a local file, its preview doesn't change.
 
@@ -77,3 +78,14 @@ and clearing the browser's site data deletes them.
 | | nord15 | `#b48ead` | purple |
 
 Light bookmarks are `#d7dfe9`, a blue tint between nord5 and nord10. Hover and grey text are mixed from the colors above.
+
+## Image icons
+
+Instead of a Font Awesome icon, a bookmark can show an image. [Dashboard Icons](https://dashboardicons.com/icons)
+and [selfh.st icons](https://selfh.st/icons/) have nicely made logos for most self-hosted apps:
+```html
+<a href="https://proxmox.example.com"><img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/proxmox.svg" alt="">Proxmox</a>
+<a href="https://immich.example.com"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/immich.svg" alt="">Immich</a>
+```
+Look up the app on either site and put its name in the link (`proxmox`, `immich`, …).
+Image icons keep their own colors, so a one-color icon setting (`--icons`) doesn't change them.

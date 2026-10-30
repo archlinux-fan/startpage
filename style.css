@@ -47,6 +47,7 @@ nav {
     }
     /* --icons (one color for all) wins over each icon's own --c */
     i { width: 1.2em; text-align: center; color: var(--icons, var(--c, var(--text))); }
+    img { width: 1.2em; height: 1.2em; object-fit: contain; } /* image icons, e.g. from dashboardicons.com */
 }
 
 @media (width < 760px) { main { width: calc(100% - 32px); margin-top: 24px; } }
