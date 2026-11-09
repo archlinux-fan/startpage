@@ -4,7 +4,7 @@ aside {
     padding: 24px 20px 64px; background: var(--panel, light-dark(#d7dfe9, #3b4252)); /* room at the bottom for the show / hide button */
     transition: translate .25s ease;
     &[inert] { translate: -100%; }
-    ul { flex: 1; min-height: 0; overflow-y: auto; list-style: none; }
+    ul { flex: 1; min-height: 0; overflow-y: auto; list-style: none; margin-right: -16px; padding-right: 16px; } /* scrollbar in the panel's padding, not over × */
     li { display: flex; align-items: start; gap: 8px; padding: 7px 0; }
     li[data-pinned] + li:not([data-pinned]) { border-top: 1px solid var(--hover); margin-top: 6px; padding-top: 13px; }
     li[draggable="true"] { opacity: .4; }
